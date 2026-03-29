@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support via Monero</title>
+  <style>
+    body {
+      font: 16px system-ui, sans-serif;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    .btn,
+    button {
+      display: inline-block;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: #f26822;
+      color: #fff;
+      text-decoration: none;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 256px;
+      height: auto;
+      display: block;
+      margin: 20px 0;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    code {
+      display: block;
+      padding: 12px;
+      background: #1d1d1d;
+      border-radius: 10px;
+      word-break: break-all;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Support via Monero</h1>
+  <p>If you already have a Monero wallet on this device, use the button below.</p>
+
+  <p>
+    <a class="btn" href="monero:86rFTULp1np4A8RCJq7zzNKyMAZ3P56b9fLYdHGUH78229qKuZCk3gMghxiFGprJiibo3LwatDthAWHhcpSPQhMtAwwXxDc?recipient_name=xholopaw&tx_description=Twitch%20tip">
+      Open in Wallet
+    </a>
+  </p>
+
+  <p>If the wallet button does not open, scan this QR or copy the address.</p>
+
+  <img src="monero-qr.png" alt="Monero donation QR">
+
+  <code id="addr">86rFTULp1np4A8RCJq7zzNKyMAZ3P56b9fLYdHGUH78229qKuZCk3gMghxiFGprJiibo3LwatDthAWHhcpSPQhMtAwwXxDc</code>
+
+  <button id="copyBtn" type="button">Copy address</button>
+
+  <script>
+    document.getElementById('copyBtn').addEventListener('click', async function () {
+      await navigator.clipboard.writeText(document.getElementById('addr').textContent);
+      this.textContent = 'Copied';
+    });
+  </script>
+</body>
+</html>
